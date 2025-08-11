@@ -1,0 +1,140 @@
+{{Infobox OS
+| name = Linux Mint
+| logo = Linux_Mint_logo_without_wordmark_optimized.svg
+| screenshot = 
+| caption = 
+| developer = Linux Mint Team
+| family = [[Linux]]
+| working_state = Current
+| source_model = [[Free and open-source software]]
+| initial_release = August 27, 2006
+| latest_release_version = 22.0 "Wilma"
+| latest_release_date = January 2025
+| package_manager = [[APT]], [[Flatpak]], [[Snap]]
+| supported_platforms = [[x86-64]], [[ARM64]]
+| kernel_type = [[Linux kernel|Monolithic]] ([[Linux kernel]])
+| ui = [[Cinnamon]], [[MATE]], [[Xfce]]
+| license = Various [[free software]] licenses
+| website = {{URL|linuxmint.com}}
+}}
+
+'''Linux Mint''' is a popular [[Linux distribution]] based on [[Ubuntu]] and [[Debian]]. It aims to provide a modern, elegant, and comfortable [[operating system]] that is both powerful and easy to use.
+
+== Overview ==
+
+Linux Mint is designed to work "out of the box" and comes fully equipped with the software most people need, including:
+* A full office suite
+* Media players and codecs
+* Web browsers and email clients
+* Photo editors and image viewers
+* System administration tools
+
+The distribution is known for its user-friendly approach, making it an excellent choice for users transitioning from [[Windows]] or [[macOS]] to Linux.
+
+== Desktop Environments ==
+
+Linux Mint offers three main [[desktop environment]]s:
+
+=== Cinnamon ===
+'''Cinnamon''' is Linux Mint's flagship desktop environment. It provides:
+* Modern and intuitive interface
+* Traditional desktop metaphor with taskbar and start menu
+* Highly customizable themes and extensions
+* Smooth animations and effects
+
+=== MATE ===
+'''MATE''' is a continuation of the classic [[GNOME]] 2 desktop:
+* Lightweight and fast
+* Traditional desktop layout
+* Stable and reliable
+* Lower system requirements
+
+=== Xfce ===
+'''Xfce''' is the most lightweight option:
+* Minimal resource usage
+* Fast performance on older hardware
+* Simple and clean interface
+* Highly customizable
+
+== Key Features ==
+
+=== Multimedia Support ===
+Linux Mint includes multimedia codecs out of the box, allowing users to:
+* Play most audio and video formats immediately
+* Stream content from popular platforms
+* Edit photos and videos without additional software installation
+
+=== Software Management ===
+The distribution features multiple ways to install software:
+* '''Software Manager''' - User-friendly graphical interface
+* '''Synaptic Package Manager''' - Advanced package management
+* '''APT''' command-line tools
+* '''Flatpak''' and '''Snap''' support for universal packages
+
+=== System Administration ===
+Linux Mint provides intuitive system management tools:
+* '''Update Manager''' with kernel management
+* '''Driver Manager''' for hardware drivers
+* '''System Settings''' for configuration
+* '''Timeshift''' for system snapshots and backups
+
+== Installation and System Requirements ==
+
+=== Minimum Requirements ===
+* '''RAM:''' 2GB (4GB recommended for comfortable usage)
+* '''Disk space:''' 20GB (100GB recommended)
+* '''Processor:''' Any Intel or AMD x64 processor
+* '''Graphics:''' 1024×768 resolution
+
+=== Recommended Requirements ===
+* '''RAM:''' 4GB or more
+* '''Disk space:''' 100GB or more
+* '''Graphics:''' 1920×1080 resolution or higher
+* '''Internet connection''' for updates and additional software
+
+== Community and Support ==
+
+Linux Mint has a vibrant community that provides:
+* '''Forums''' - Community discussion and support
+* '''Documentation''' - Comprehensive user guides
+* '''Tutorials''' - Step-by-step learning resources
+* '''IRC Chat''' - Real-time community assistance
+
+== Release Cycle ==
+
+Linux Mint follows a predictable release schedule:
+* '''Major releases''' approximately every 2 years
+* '''Point releases''' with updates and improvements
+* '''Long Term Support (LTS)''' versions supported for 5 years
+* '''Security updates''' provided throughout the support period
+
+== Getting Started ==
+
+New users should:
+# Download the appropriate ISO from the official website
+# Create a bootable USB drive or DVD
+# Boot from the installation media
+# Follow the installation wizard
+# Complete the initial system setup
+
+For detailed installation instructions, see: [[Installing Linux Mint]]
+
+== See Also ==
+
+* [[Cinnamon Desktop Environment]]
+* [[Linux Mint History]]
+* [[Migrating from Windows]]
+* [[Essential Software for Linux Mint]]
+* [[Troubleshooting Linux Mint]]
+
+== External Links ==
+
+* [https://linuxmint.com/ Official Linux Mint Website]
+* [https://forums.linuxmint.com/ Linux Mint Forums]
+* [https://linuxmint-installation-guide.readthedocs.io/ Installation Guide]
+* [https://github.com/linuxmint Linux Mint on GitHub]
+
+[[Category:Linux distributions]]
+[[Category:Ubuntu derivatives]]
+[[Category:Operating systems]]
+[[Category:Free software]]

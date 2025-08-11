@@ -1,0 +1,59 @@
+services:
+  mediawiki:
+    container_name: wiki
+    image: mediawiki:1.44
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - database
+    env_file:
+      - .env
+    volumes:
+      - ./wikitext_files:/var/www/html/wikitext_files
+      - ./images:/var/www/html/images
+      - ./resources/assets:/var/www/html/resources/assets
+      - ./skins:/var/www/html/skins
+      - ./LocalSettings.php.template:/var/www/html/LocalSettings.php.template
+      - ./scripts/setup.sh:/setup.sh
+      - ./scripts/update-config.sh:/update-config.sh
+      - ./css:/var/www/html/css
+    environment:
+      - MEDIAWIKI_DB_HOST=${MEDIAWIKI_DB_HOST}
+      - MEDIAWIKI_DB_NAME=${MEDIAWIKI_DB_NAME}
+      - MEDIAWIKI_DB_USER=${MEDIAWIKI_DB_USER}
+      - MEDIAWIKI_DB_PASSWORD=${MEDIAWIKI_DB_PASSWORD}
+      - MEDIAWIKI_SITENAME=${MEDIAWIKI_SITENAME}
+      - MEDIAWIKI_META_NAMESPACE=${MEDIAWIKI_META_NAMESPACE}
+      - MEDIAWIKI_SERVER=${MEDIAWIKI_SERVER}
+      - MEDIAWIKI_SECRET_KEY=${MEDIAWIKI_SECRET_KEY}
+      - MEDIAWIKI_UPGRADE_KEY=${MEDIAWIKI_UPGRADE_KEY}
+      - MEDIAWIKI_AUTH_TOKEN_VERSION=${MEDIAWIKI_AUTH_TOKEN_VERSION}
+      - MEDIAWIKI_ADMIN_USER=${MEDIAWIKI_ADMIN_USER}
+      - MEDIAWIKI_ADMIN_PASS=${MEDIAWIKI_ADMIN_PASS}
+    entrypoint:
+      [
+        "/bin/bash",
+        "-c",
+        "apt-get update && apt-get install -y default-mysql-client && /setup.sh",
+      ]
+
+  database:
+    container_name: db
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: ${MEDIAWIKI_DB_NAME}
+      MYSQL_USER: ${MEDIAWIKI_DB_USER}
+      MYSQL_PASSWORD: ${MEDIAWIKI_DB_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    volumes:
+      - dbvolume:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  dbvolume:
+    name: dbvolume
+  images: {}

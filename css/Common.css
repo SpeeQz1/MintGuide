@@ -1,0 +1,39 @@
+/* All CSS here will be loaded for users of the Citizen skin */
+
+:root {
+  /* Border colors - increase opacity from 0.08 to 0.2 */
+  --border-color-base: rgba(255, 255, 255, 0.2);
+  --border-color-divider: rgba(255, 255, 255, 0.2);
+  --border-color-subtle: rgba(255, 255, 255, 0.2);
+  --border-color-muted: rgba(255, 255, 255, 0.2);
+  --box-shadow-border: rgba(255, 255, 255, 0.2) 0 0 0 1px;
+  --box-shadow-drop-small: 0 0 0 1px rgba(255, 255, 255, 0.2);
+
+  /* Base Colors */
+  --color-subtle: #adefb1;
+  --color-base: #ffffff;
+  --color-emphasized: #adefb1;
+  --color-progressive: #78c740;
+  --color-destructive: #ca2b52 !important;
+
+  /* Background colors */
+  --color-surface-1: #141615;
+  --background-color-interactive-subtle: #3f7f4a;
+
+  --background-color-base: #141615;
+  --background-color-base-fixed: #3f7f4a;
+  --color-surface-0: #141615;
+  --color-surface-2: #0d120f;
+
+  /* Interactive elements with secondary color */
+  --background-color-interactive-subtle--hover: #4a8a55;
+  --background-color-interactive-subtle--active: #35704a;
+}
+
+.mw-header.citizen-header {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 129, 104, 1) 0%,
+    rgba(63, 127, 74, 1) 100%
+  );
+}
