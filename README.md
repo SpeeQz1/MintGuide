@@ -16,7 +16,7 @@ Instructions on how to set it up are included bellow and further documentation o
 
 Follow these instructions to set up the wiki locally.
 
-1. Install [Docker Engine](https://docs.docker.com/engine/install/) from Docker's website.
+1. (You can skip this step if you have `Docker Desktop` or `Docker Engine`) Install [Docker Engine](https://docs.docker.com/engine/install/) from Docker's website.
 2. Clone the repository in whichever directory you want.
 
 ```sh
