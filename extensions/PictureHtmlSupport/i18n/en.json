@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"[https://www.mediawiki.org/wiki/User:Alistair3149 Alistair3149]",
+			"[https://www.mediawiki.org/wiki/User:Octfx Octfx]"
+		]
+	},
+	"picturehtmlsupport": "PictureHtmlSupport",
+	"picturehtmlsupport-desc": "A MediaWiki extension that wraps thumbnails with picture elements, and allows adding additional source elements"
+}

@@ -1,0 +1,14 @@
+{
+	"private": true,
+	"scripts": {
+		"lint": "npm -s run lint:i18n",
+		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/"
+	},
+	"devDependencies": {
+		"grunt-banana-checker": "0.13.0"
+	},
+	"eslintIgnore": [
+		"coverage",
+		"vendor"
+	]
+}
