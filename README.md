@@ -33,7 +33,7 @@ docker compose up -d
 
 ### Commands
 
-To stop the containers just run:
+To stop the containers just run the command bellow, after you have stopped the container and started it again this will import all the `.wikitext` files into the wiki again.
 
 ```sh
 docker compose down
