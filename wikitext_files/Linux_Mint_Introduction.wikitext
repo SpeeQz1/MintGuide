@@ -23,7 +23,7 @@
 
 '''Linux Mint''' is a popular [[Linux distribution]] based on [[Ubuntu]] and [[Debian]]. It aims to provide a modern, elegant, and comfortable [[operating system]] that is both powerful and easy to use.
 
-[[File:cinnamon.webp|300px|alt=Linux Mint Cinnamon]]
+[[File:Cinnamon.webp|300px|alt=Linux Mint Cinnamon]]
 
 == Overview ==
 
