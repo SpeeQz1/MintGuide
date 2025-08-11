@@ -10,16 +10,18 @@ services:
     env_file:
       - .env
     volumes:
-      - ./wikitext_files:/var/www/html/wikitext_files
       - images:/var/www/html/images
       # Important to note is that only the assets folder has been modified and not resources.
       # Otherwise it will mimic what is on the host including missing files.
       - ./resources/assets:/var/www/html/resources/assets
       - ./skins:/var/www/html/skins
       - ./extensions:/var/www/html/extensions
+      - ./content:/var/www/html/content
+      - ./wikitext_files:/var/www/html/wikitext_files
       - ./LocalSettings.php.template:/var/www/html/LocalSettings.php.template
       - ./scripts/setup.sh:/setup.sh
       - ./scripts/update-config.sh:/update-config.sh
+      - ./scripts/export-wiki.sh:/export-wiki.sh
       - ./css:/var/www/html/css
     environment:
       - MEDIAWIKI_DB_HOST=${MEDIAWIKI_DB_HOST}
