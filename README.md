@@ -23,8 +23,9 @@ Follow these instructions to set up the wiki locally.
 git clone https://github.com/path/to/repo.git
 ```
 
-4. Create the necessary environmental variables, an `.env.template` and `.env.example` are both provided. Use the `./scripts.generate-keys.sh` file to generate the necessary keys.
-5. Run Docker compose.
+4. Create the necessary environmental variables, an `.env.template` and `.env.example` are both provided.
+5. Use the `./scripts.generate-keys.sh` file to generate the necessary keys.
+6. Run Docker compose.
 
 ```sh
 docker compose up -d
