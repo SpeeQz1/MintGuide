@@ -1,3 +1,6 @@
+<!-- THIS IS A SAMPLE .wikitext FILE USED FOR THE WIKI -->
+<!-- ADD .wikitext FILES TO THIS DIRECTORY SO THAT THEY GET IMPORTED -->
+
 {{Infobox OS
 | name = Linux Mint
 | logo = Linux_Mint_logo_without_wordmark_optimized.svg
