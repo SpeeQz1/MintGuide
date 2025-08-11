@@ -11,7 +11,9 @@ services:
       - .env
     volumes:
       - ./wikitext_files:/var/www/html/wikitext_files
-      - ./images:/var/www/html/images
+      - images:/var/www/html/images
+      # Important to note is that only the assets folder has been modified and not resources.
+      # Otherwise it will mimic what is on the host including missing files.
       - ./resources/assets:/var/www/html/resources/assets
       - ./skins:/var/www/html/skins
       - ./extensions:/var/www/html/extensions

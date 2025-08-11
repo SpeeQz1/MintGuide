@@ -72,11 +72,18 @@ else
     echo "Warning: Template configuration file not found. Using generated configuration."
   fi
 
-  # Add this to your setup.sh after the MediaWiki installation
+  # Importing all the .wikitext files
   if ls /var/www/html/wikitext_files/*.wikitext >/dev/null 2>&1; then
     echo "Importing wikitext files..."
     cd /var/www/html
-    php maintenance/run.php importTextFiles /var/www/html/wikitext_files/*.wikitext
+    php maintenance/run.php importTextFiles --overwrite /var/www/html/wikitext_files/*.wikitext
+  fi
+
+  # Import images
+  if ls /var/www/html/resources/assets/images/* >/dev/null 2>&1; then
+    echo "Importing images..."
+    cd /var/www/html
+    php maintenance/run.php importImages --overwrite /var/www/html/resources/assets/images
   fi
 fi
 
