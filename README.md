@@ -4,7 +4,7 @@
 
 ![Introduction Preview](docs/assets/images/Preview.png)
 
-Welcome to The Linux Mint Community Wiki repository. Here you can find the infrastructure used for hosting the wiki on [Insert URL Link Later]().
+Welcome to The Linux Mint Community Wiki repository. Here you can find the infrastructure used for hosting the wiki. You can find the wiki online at [Mirahaze Instance](https://mintguide.miraheze.org/wiki/Main_Page).
 
 Instructions on how to set it up are included bellow and further documentation on how the whole infrastructure setup can be found in [docs currently are not implemented]().
 
