@@ -51,6 +51,12 @@ If you have modified the `LocalSettings.php.template` script run:
 docker exec -it wiki /update-config.sh
 ```
 
+To enter inside the MediaWiki instance you can create a bash instance inside the container:
+
+```sh
+docker exec -it wiki bash
+```
+
 ## Contributions
 
 Big shoutout to the [Linux Mint Community](https://discord.gg/mint) Discord server for helping out in the project and collaborating to make this project real.

@@ -182,3 +182,7 @@ $wgResourceModules['site.common'] = [
 $wgHooks['BeforePageDisplay'][] = function( OutputPage &$out, Skin &$skin ) {
     $out->addModuleStyles( 'site.common' );
 };
+
+# Enable WEBP support
+wfLoadExtension( 'WebP' );
+wfLoadExtension( 'PictureHtmlSupport' );
