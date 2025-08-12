@@ -1,6 +1,6 @@
 /* All CSS here will be loaded for users of the Citizen skin */
 
-:root {
+html.skin-theme-clientpref-night {
   /* Border colors - increase opacity from 0.08 to 0.2 */
   --border-color-base: rgba(255, 255, 255, 0.2);
   --border-color-divider: rgba(255, 255, 255, 0.2);
@@ -31,10 +31,24 @@
   --background-color-interactive-subtle--active: #35704a;
 }
 
+/* Sidemenu gradient and icons */
 .mw-header.citizen-header {
   background: linear-gradient(
     180deg,
     rgba(2, 129, 104, 1) 0%,
     rgba(63, 127, 74, 1) 100%
   );
+
+  .citizen-ui-icon {
+    color: #ffffff;
+  }
+}
+
+/* Home Icon */
+.citizen-header__logo .citizen-ui-icon.mw-ui-icon-home {
+  opacity: 0;
+}
+
+.mw-logo.citizen-header__button:hover .citizen-ui-icon.mw-ui-icon-home {
+  opacity: 1;
 }
