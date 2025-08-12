@@ -186,3 +186,11 @@ $wgHooks['BeforePageDisplay'][] = function( OutputPage &$out, Skin &$skin ) {
 # Enable WEBP support
 wfLoadExtension( 'WebP' );
 wfLoadExtension( 'PictureHtmlSupport' );
+
+# Enable database exporting support
+wfLoadExtension( 'DumpsOnDemand' );
+
+$wgGroupPermissions['*']['dumpsondemand'] = true;
+$wgGroupPermissions['*']['dumprequestlog'] = true;
+$wgDumpsOnDemandUseDefaultJobQueue = true;
+$wgDumpsOnDemandRequestLimit = 0;

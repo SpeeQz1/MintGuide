@@ -14,15 +14,25 @@ services:
       # Important to note is that only the assets folder has been modified and not resources.
       # Otherwise it will mimic what is on the host including missing files.
       - ./resources/assets:/var/www/html/resources/assets
+      # Import default and custom skins
       - ./skins:/var/www/html/skins
+      # Import extensions, the ones present in the default installation are included
       - ./extensions:/var/www/html/extensions
+      # Local exports and imports
       - ./content:/var/www/html/content
+      # Import wikitext files
       - ./wikitext_files:/var/www/html/wikitext_files
+      # Inject custom LocalSettings.php file
       - ./LocalSettings.php.template:/var/www/html/LocalSettings.php.template
+      # Add maintanence scripts
       - ./scripts/setup.sh:/setup.sh
       - ./scripts/update-config.sh:/update-config.sh
       - ./scripts/export-wiki.sh:/export-wiki.sh
+      # Inject custom CSS for Citizen
       - ./css:/var/www/html/css
+      # Add h5ai for media exports
+      - ./_h5ai:/var/www/html/_h5ai
+      - ./scripts/setup-h5ai.sh:/setup-h5ai.sh
     environment:
       - MEDIAWIKI_DB_HOST=${MEDIAWIKI_DB_HOST}
       - MEDIAWIKI_DB_NAME=${MEDIAWIKI_DB_NAME}
@@ -40,7 +50,7 @@ services:
       [
         "/bin/bash",
         "-c",
-        "apt-get update && apt-get install -y default-mysql-client && /setup.sh",
+        "apt-get update && apt-get install -y default-mysql-client && /setup-h5ai.sh && /setup.sh",
       ]
 
   database:
