@@ -1,4 +1,4 @@
-# The Linux Mint Wiki
+# The Linux Mint Community Wiki
 
 ## Introduction
 
