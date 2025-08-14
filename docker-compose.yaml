@@ -75,7 +75,7 @@ services:
     image: ghcr.io/kimdre/doco-cd:latest
     restart: unless-stopped
     profiles:
-      - gitops # Profile added to avoid starting it when self hosting
+      - gitops
     ports:
       - "8080:80"
     environment:
@@ -83,15 +83,22 @@ services:
       DOCOCD_LOG_LEVEL: info
       WEBHOOK_SECRET: ${WEBHOOK_SECRET}
       GIT_ACCESS_TOKEN: ${GIT_ACCESS_TOKEN}
+      GITHUB_REPO_URL: ${GITHUB_REPO_URL} # Add this line
       POLL_CONFIG: |
         - url: ${GITHUB_REPO_URL}
           reference: ${GITHUB_BRANCH:-main}
           interval: 15
-          target: mint-wiki
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/workspace:ro
       - data:/data
+      - ./scripts/inject-gitops.sh:/inject-gitops.sh:ro
+    entrypoint:
+      [
+        "/bin/sh",
+        "-c",
+        "while true; do sleep 15; /inject-env.sh; done & exec /app/doco-cd",
+      ]
 
 volumes:
   dbvolume:

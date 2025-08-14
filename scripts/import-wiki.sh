@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Simple script to import files from the imports folder
 
 IMPORTS_DIR="./content/imports"
