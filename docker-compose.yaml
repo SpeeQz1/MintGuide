@@ -92,13 +92,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/workspace:ro
       - data:/data
-      - ./scripts/inject-gitops.sh:/inject-gitops.sh:ro
-    entrypoint:
-      [
-        "/bin/sh",
-        "-c",
-        "while true; do sleep 15; /inject-env.sh; done & exec /app/doco-cd",
-      ]
+      - ./.env:/data/github.com/${REPO_OWNER}/${REPO_NAME}/.env:ro
 
 volumes:
   dbvolume:
