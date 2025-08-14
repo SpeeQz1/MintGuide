@@ -1,0 +1,12 @@
+deployments:
+  mint-wiki:
+    compose:
+      file: "docker-compose.yaml"
+      project: "mint-wiki"
+
+    services:
+      - "mediawiki"
+      - "database"
+
+    strategy:
+      type: "pull-and-restart"

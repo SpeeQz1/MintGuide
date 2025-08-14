@@ -69,7 +69,32 @@ services:
       - dbvolume:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
 
+  # GitOps with doco-cd (optional - can be disabled)
+  doco-cd:
+    container_name: doco-cd
+    image: ghcr.io/kimdre/doco-cd:latest
+    restart: unless-stopped
+    profiles:
+      - gitops # Profile added to avoid starting it when self hosting
+    ports:
+      - "8080:80"
+    environment:
+      TZ: UTC
+      DOCOCD_LOG_LEVEL: info
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET}
+      GIT_ACCESS_TOKEN: ${GIT_ACCESS_TOKEN}
+      POLL_CONFIG: |
+        - url: ${GITHUB_REPO_URL}
+          reference: ${GITHUB_BRANCH:-main}
+          interval: 15
+          target: mint-wiki
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/workspace:ro
+      - data:/data
+
 volumes:
   dbvolume:
     name: dbvolume
   images: {}
+  data: {}
