@@ -43,47 +43,47 @@ if [ -f /var/www/html/LocalSettings.php ]; then
   else
     echo "Database tables don't exist, running maintenance/update.php..."
     cd /var/www/html
-    php maintenance/update.php --quick
+    su -s /bin/bash www-data -c "php maintenance/update.php --quick"
   fi
 else
   echo "No LocalSettings.php found, running installation process..."
   
-  # Run the installation script
+  # Run the installation script as www-data
   cd /var/www/html
-  php maintenance/install.php \
-    --dbname="$MEDIAWIKI_DB_NAME" \
-    --dbserver="$MEDIAWIKI_DB_HOST" \
-    --dbuser="$MEDIAWIKI_DB_USER" \
-    --dbpass="$MEDIAWIKI_DB_PASSWORD" \
-    --server="$MEDIAWIKI_SERVER" \
-    --scriptpath="" \
-    --pass="$MEDIAWIKI_ADMIN_PASS" \
-    "$MEDIAWIKI_SITENAME" \
-    "$MEDIAWIKI_ADMIN_USER"
+  su -s /bin/bash www-data -c "php maintenance/install.php \
+    --dbname=\"$MEDIAWIKI_DB_NAME\" \
+    --dbserver=\"$MEDIAWIKI_DB_HOST\" \
+    --dbuser=\"$MEDIAWIKI_DB_USER\" \
+    --dbpass=\"$MEDIAWIKI_DB_PASSWORD\" \
+    --server=\"$MEDIAWIKI_SERVER\" \
+    --scriptpath=\"\" \
+    --pass=\"$MEDIAWIKI_ADMIN_PASS\" \
+    \"$MEDIAWIKI_SITENAME\" \
+    \"$MEDIAWIKI_ADMIN_USER\""
   
   # Once installation is complete, replace the generated LocalSettings.php with our template
   if [ -f /var/www/html/LocalSettings.php.template ]; then
     echo "Using template configuration file..."
     cp /var/www/html/LocalSettings.php.template /var/www/html/LocalSettings.php
     
-    # Run update.php to ensure all extensions are properly installed
-    php maintenance/update.php --quick
+    # Run update.php to ensure all extensions are properly installed (as www-data)
+    su -s /bin/bash www-data -c "php maintenance/update.php --quick"
   else
     echo "Warning: Template configuration file not found. Using generated configuration."
   fi
 
-  # Importing all the .wikitext files
+  # Importing all the .wikitext files (as www-data)
   if ls /var/www/html/wikitext_files/*.wikitext >/dev/null 2>&1; then
     echo "Importing wikitext files..."
     cd /var/www/html
-    php maintenance/run.php importTextFiles --overwrite /var/www/html/wikitext_files/*.wikitext
+    su -s /bin/bash www-data -c "php maintenance/run.php importTextFiles --overwrite /var/www/html/wikitext_files/*.wikitext"
   fi
 
-  # Import images
+  # Import images (as www-data)
   if ls /var/www/html/resources/assets/images/* >/dev/null 2>&1; then
     echo "Importing images..."
     cd /var/www/html
-    php maintenance/run.php importImages --overwrite /var/www/html/resources/assets/images
+    su -s /bin/bash www-data -c "php maintenance/run.php importImages --overwrite /var/www/html/resources/assets/images"
   fi
 fi
 

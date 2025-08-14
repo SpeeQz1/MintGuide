@@ -19,9 +19,9 @@ if [ ! -d "$IMAGES_DIR" ]; then
   mkdir -p "$IMAGES_DIR"
 fi
 
-# Export all pages with full history
+# Export all pages with full history (as www-data)
 echo -e "Exporting all wiki pages with full history..."
-php maintenance/dumpBackup.php --full > "${CONTENT_DIR}/wiki_content.xml"
+su -s /bin/bash www-data -c "php maintenance/dumpBackup.php --full > ${CONTENT_DIR}/wiki_content.xml"
 
 # Check if the content export was successful
 if [ $? -eq 0 ]; then
@@ -34,9 +34,9 @@ else
   exit 1
 fi
 
-# Export list of uploaded files
+# Export list of uploaded files (as www-data)
 echo -e "\nExporting list of uploaded images..."
-php maintenance/dumpUploads.php > "${CONTENT_DIR}/image_list.txt"
+su -s /bin/bash www-data -c "php maintenance/dumpUploads.php > ${CONTENT_DIR}/image_list.txt"
 
 # Check if the image list export was successful
 if [ $? -eq 0 ]; then

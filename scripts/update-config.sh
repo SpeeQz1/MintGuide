@@ -19,23 +19,23 @@ fi
 cp /var/www/html/LocalSettings.php.template /var/www/html/LocalSettings.php
 echo "Configuration updated from template."
 
-# Run only the essential maintenance scripts using the recommended approach
+# Run only the essential maintenance scripts using the recommended approach (as www-data)
 cd /var/www/html
 echo "Running essential maintenance operations..."
-php maintenance/run.php update --quick
+su -s /bin/bash www-data -c "php maintenance/run.php update --quick"
 
-# Importing all the .wikitext files
+# Importing all the .wikitext files (as www-data)
 if ls /var/www/html/wikitext_files/*.wikitext >/dev/null 2>&1; then
   echo "Importing wikitext files..."
   cd /var/www/html
-  php maintenance/run.php importTextFiles --overwrite /var/www/html/wikitext_files/*.wikitext
+  su -s /bin/bash www-data -c "php maintenance/run.php importTextFiles --overwrite /var/www/html/wikitext_files/*.wikitext"
 fi
 
-# Import images
+# Import images (as www-data)
 if ls /var/www/html/resources/assets/images/* >/dev/null 2>&1; then
   echo "Importing images..."
   cd /var/www/html
-  php maintenance/run.php importImages --overwrite /var/www/html/resources/assets/images
+  su -s /bin/bash www-data -c "php maintenance/run.php importImages --overwrite /var/www/html/resources/assets/images"
 fi
 
 # Restart Apache (works for the official MediaWiki Docker image)

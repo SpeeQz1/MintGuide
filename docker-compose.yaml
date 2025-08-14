@@ -28,6 +28,7 @@ services:
       - ./scripts/setup.sh:/setup.sh
       - ./scripts/update-config.sh:/update-config.sh
       - ./scripts/export-wiki.sh:/export-wiki.sh
+      - ./scripts/import-wiki.sh:/import-wiki.sh
       # Inject custom CSS for Citizen
       - ./css:/var/www/html/css
       # Add h5ai for media exports

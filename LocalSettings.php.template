@@ -134,9 +134,6 @@ wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
 
-wfLoadSkin( 'Citizen' );
-
-
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtension( 'ExtensionName' );
 # to LocalSettings.php. Check specific extension documentation for more details.
@@ -159,6 +156,13 @@ wfLoadExtension( 'WikiEditor' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
+
+# =====================
+# CUSTOM CONFIGURATIONS
+# =====================
+
+# Loading the Citizen skin
+wfLoadSkin( 'Citizen' );
 
 # This forces an update of the database schema when needed
 $wgShowExceptionDetails = true;
@@ -194,3 +198,6 @@ $wgGroupPermissions['*']['dumpsondemand'] = true;
 $wgGroupPermissions['*']['dumprequestlog'] = true;
 $wgDumpsOnDemandUseDefaultJobQueue = true;
 $wgDumpsOnDemandRequestLimit = 0;
+
+# Add Infobox extension
+wfLoadExtension( 'PortableInfobox' );
