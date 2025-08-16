@@ -1,11 +1,14 @@
+name: mediawiki-local
+
 services:
+  # MediaWiki instance
   mediawiki:
     container_name: wiki
     image: mediawiki:1.44
     restart: always
     ports:
       - "80:80"
-    depends_on:
+    links:
       - database
     env_file:
       - .env
@@ -54,9 +57,10 @@ services:
         "apt-get update && apt-get install -y default-mysql-client && /setup-h5ai.sh && /setup.sh",
       ]
 
+  # MySQL database used for MediaWiki
   database:
     container_name: db
-    image: mysql:8.0
+    image: mysql:9.4
     restart: always
     env_file:
       - .env
@@ -67,35 +71,8 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
     volumes:
       - dbvolume:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
-
-  # GitOps with doco-cd (optional - can be disabled)
-  doco-cd:
-    container_name: doco-cd
-    image: ghcr.io/kimdre/doco-cd:latest
-    restart: unless-stopped
-    profiles:
-      - gitops
-    ports:
-      - "8080:80"
-    environment:
-      TZ: UTC
-      DOCOCD_LOG_LEVEL: info
-      WEBHOOK_SECRET: ${WEBHOOK_SECRET}
-      GIT_ACCESS_TOKEN: ${GIT_ACCESS_TOKEN}
-      GITHUB_REPO_URL: ${GITHUB_REPO_URL} # Add this line
-      POLL_CONFIG: |
-        - url: ${GITHUB_REPO_URL}
-          reference: ${GITHUB_BRANCH:-main}
-          interval: 15
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - .:/workspace:ro
-      - data:/data
-      - ./.env:/data/github.com/${REPO_OWNER}/${REPO_NAME}/.env:ro
 
 volumes:
   dbvolume:
     name: dbvolume
   images: {}
-  data: {}

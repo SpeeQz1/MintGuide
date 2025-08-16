@@ -1,0 +1,54 @@
+name: mediawiki-gitops
+
+services:
+  # Env injector to safely copy .env file
+  env-injector:
+    container_name: env-injector
+    image: alpine:latest
+    volumes:
+      - ./.env:/source/.env:ro
+      - data:/data
+    command: |
+      sh -c "
+        echo 'Starting env injector...'
+        while true; do
+          if [ -d '/data/github.com/${REPO_OWNER}/${REPO_NAME}' ] && [ ! -f '/data/github.com/${REPO_OWNER}/${REPO_NAME}/.env' ]; then
+            echo 'Repository found, injecting .env file...'
+            cp /source/.env '/data/github.com/${REPO_OWNER}/${REPO_NAME}/.env'
+            echo 'Successfully injected .env file'
+          else
+            echo 'Repository not ready or .env already exists'
+          fi
+          sleep 10
+        done
+      "
+    environment:
+      - REPO_OWNER=${REPO_OWNER}
+      - REPO_NAME=${REPO_NAME}
+    restart: unless-stopped
+
+  # GitOps deployment service
+  doco-cd:
+    container_name: doco-cd
+    image: ghcr.io/kimdre/doco-cd:latest
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      TZ: UTC
+      DOCOCD_LOG_LEVEL: info
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET}
+      GIT_ACCESS_TOKEN: ${GIT_ACCESS_TOKEN}
+      POLL_CONFIG: |
+        - url: ${GITHUB_REPO_URL}
+          reference: ${GITHUB_BRANCH:-main}
+          interval: 60
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/workspace:ro
+      - data:/data
+    depends_on:
+      - env-injector
+
+volumes:
+  data: {}

@@ -1,4 +1,3 @@
-name: mint-wiki
 compose_files:
   - docker-compose.yaml
 remove_orphans: true

@@ -8,7 +8,7 @@ wait_for_mysql() {
   counter=0
   
   while [ $counter -lt $max_attempts ]; do
-    if mysqladmin ping -h "$MEDIAWIKI_DB_HOST" -u "$MEDIAWIKI_DB_USER" -p"$MEDIAWIKI_DB_PASSWORD" --silent; then
+    if mysqladmin ping -h "$MEDIAWIKI_DB_HOST" -u "$MEDIAWIKI_DB_USER" -p"$MEDIAWIKI_DB_PASSWORD" --ssl=FALSE; then
       echo "MySQL is ready!"
       return 0
     fi
