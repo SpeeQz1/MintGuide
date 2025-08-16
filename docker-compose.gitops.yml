@@ -45,8 +45,8 @@ services:
           interval: 60
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - .:/workspace:ro
       - data:/data
+      - .:/workspace:ro
     depends_on:
       - env-injector
 
