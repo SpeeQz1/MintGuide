@@ -1,4 +1,4 @@
-name: mediawiki-test
+name: mediawiki-local
 compose_files:
   - docker-compose.yml
 remove_orphans: true
