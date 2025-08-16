@@ -1,5 +1,5 @@
 compose_files:
-  - docker-compose.yaml
+  - docker-compose.yml
 remove_orphans: true
 force_recreate: false
 force_image_pull: true
