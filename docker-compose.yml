@@ -26,7 +26,7 @@ services:
       # Import wikitext files
       - ./wikitext_files:/var/www/html/wikitext_files
       # Inject custom LocalSettings.php file
-      - ./LocalSettings.php.template:/var/www/html/LocalSettings.php.template
+      - ./LocalSettings.template.php:/var/www/html/LocalSettings.template.php
       # Add maintanence scripts
       - ./scripts/setup.sh:/setup.sh
       - ./scripts/update-config.sh:/update-config.sh

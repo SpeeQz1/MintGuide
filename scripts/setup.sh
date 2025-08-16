@@ -62,9 +62,9 @@ else
     \"$MEDIAWIKI_ADMIN_USER\""
   
   # Once installation is complete, replace the generated LocalSettings.php with our template
-  if [ -f /var/www/html/LocalSettings.php.template ]; then
+  if [ -f /var/www/html/LocalSettings.template.php ]; then
     echo "Using template configuration file..."
-    cp /var/www/html/LocalSettings.php.template /var/www/html/LocalSettings.php
+    cp /var/www/html/LocalSettings.template.php /var/www/html/LocalSettings.php
     
     # Run update.php to ensure all extensions are properly installed (as www-data)
     su -s /bin/bash www-data -c "php maintenance/update.php --quick"

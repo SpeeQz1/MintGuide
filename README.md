@@ -82,7 +82,7 @@ docker compose logs -f doco-cd
 
 #### Update LocalSettings.php
 
-If you have modified the `LocalSettings.php.template` script run:
+If you have modified the `LocalSettings.template.php` script run:
 
 ```sh
 docker exec -it wiki /update-config.sh
