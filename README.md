@@ -29,7 +29,7 @@ git clone https://github.com/path/to/repo.git
 
 4. Create the necessary environmental variables, an `.env.template` and `.env.example` are both provided.
 5. Use the `./scripts.generate-keys.sh` file to generate the necessary keys.
-6. Run Docker compose in the directory where the `docker-compose.yaml` file is (`docker compose` automatically chooses the file).
+6. Run the `docker compose` command in the directory where the `docker-compose.yaml` file is (`docker compose` automatically chooses the file).
 
 ```sh
 docker compose up -d
