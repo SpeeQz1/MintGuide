@@ -25,10 +25,10 @@ echo "Running essential maintenance operations..."
 su -s /bin/bash www-data -c "php maintenance/run.php update --quick"
 
 # Importing all the .wikitext files (as www-data)
-if ls /var/www/html/wikitext_files/*.wikitext >/dev/null 2>&1; then
+if ls /var/www/html/resources/assets/wikitexts/*.wikitext >/dev/null 2>&1; then
   echo "Importing wikitext files..."
   cd /var/www/html
-  su -s /bin/bash www-data -c "php maintenance/run.php importTextFiles --overwrite /var/www/html/wikitext_files/*.wikitext"
+  su -s /bin/bash www-data -c "php maintenance/run.php importTextFiles --overwrite /var/www/html/resources/assets/wikitexts/*.wikitext"
 fi
 
 # Import images (as www-data)

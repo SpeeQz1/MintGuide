@@ -16,6 +16,7 @@ services:
       - images:/var/www/html/images
       # Important to note is that only the assets folder has been modified and not resources.
       # Otherwise it will mimic what is on the host including missing files.
+      # Import wikitexts and images
       - ./resources/assets:/var/www/html/resources/assets
       # Import default and custom skins
       - ./skins:/var/www/html/skins
@@ -24,7 +25,7 @@ services:
       # Local exports and imports
       - ./content:/var/www/html/content
       # Import wikitext files
-      - ./wikitext_files:/var/www/html/wikitext_files
+      - ./wikitexts:/var/www/html/wikitexts
       # Inject custom LocalSettings.php file
       - ./LocalSettings.template.php:/var/www/html/LocalSettings.template.php
       # Add maintanence scripts
