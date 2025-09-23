@@ -1,6 +1,7 @@
 /* All CSS here will be loaded for users of the Citizen skin */
 
-html.skin-theme-clientpref-night {
+html.skin-theme-clientpref-night,
+html.skin-theme-clientpref-os {
   /* Border colors - increase opacity from 0.08 to 0.2 */
   --border-color-base: rgba(255, 255, 255, 0.2);
   --border-color-divider: rgba(255, 255, 255, 0.2);
@@ -14,21 +15,27 @@ html.skin-theme-clientpref-night {
   --color-base: #ffffff;
   --color-emphasized: #adefb1;
   --color-progressive: #78c740;
+  --color-progressive--hover: #3f7f4a;
   --color-destructive: #ca2b52 !important;
+  --color-visited--hover: #adefb1 !important;
 
   /* Background colors */
+  --color-surface-0: #141615;
   --color-surface-1: #141615;
+  --color-surface-2: #0d120f;
   --background-color-interactive-subtle: #3f7f4a;
   --background-color-progressive-subtle: #0d120f;
 
   --background-color-base: #141615;
   --background-color-base-fixed: #3f7f4a;
-  --color-surface-0: #141615;
-  --color-surface-2: #0d120f;
 
   /* Interactive elements with secondary color */
   --background-color-interactive-subtle--hover: #4a8a55;
   --background-color-interactive-subtle--active: #35704a;
+
+  .citizen-menu__card {
+    background: rgb(from #242d23 r g b / 0.5);
+  }
 }
 
 html.skin-theme-clientpref-day {
@@ -41,25 +48,49 @@ html.skin-theme-clientpref-day {
   --box-shadow-drop-small: 0 0 0 1px rgba(255, 255, 255, 0.2);
 
   /* Base Colors */
-  --color-subtle: #38844f;
+  --color-subtle: #37692d;
   --color-base: #000000;
-  --color-emphasized: #38844f;
-  --color-progressive: #78c740;
+  --color-emphasized: #37692d;
+  --color-progressive: #38844f;
+  --color-progressive--hover: #78c740;
   --color-destructive: #ca3c3f !important;
+  --color-visited--hover: #113112 !important;
 
   /* Background colors */
-  --color-surface-1: #eaeceb;
+  --color-surface-0: #eff2f0;
+  --color-surface-1: #e3ecdf;
+  --color-surface-2: #0d120f;
   --background-color-interactive-subtle: #3f7f4a;
   --background-color-progressive-subtle: #0d120f;
 
   --background-color-base: #eaeceb;
-  --background-color-base-fixed: #78c740;
-  --color-surface-0: #eaeceb;
-  --color-surface-2: #0d120f;
+  --background-color-base-fixed: #82bd59;
 
   /* Interactive elements with secondary color */
   --background-color-interactive-subtle--hover: #4a8a55;
   --background-color-interactive-subtle--active: #35704a;
+
+  .citizen-menu__card {
+    background: rgb(from #f9fff5 r g b / 0.5);
+  }
+
+  .citizen-dropdown-details::before {
+    opacity: 0;
+  }
+
+  .citizen-menu__card-backdrop::before {
+    background: none;
+  }
+
+  .citizen-menu__card-content {
+    .citizen-ui-icon {
+      color: #000000;
+    }
+  }
+
+  .page-actions {
+    background: #ffffff;
+  }
 }
 
 /* Sidemenu gradient and icons */
@@ -69,6 +100,14 @@ html.skin-theme-clientpref-day {
     rgba(2, 129, 104, 1) 0%,
     rgba(63, 127, 74, 1) 100%
   );
+
+  @media screen and (max-width: calc(1119px)) {
+    background: linear-gradient(
+      45deg,
+      rgba(2, 129, 104, 1) 0%,
+      rgba(63, 127, 74, 1) 100%
+    );
+  }
 
   .citizen-ui-icon {
     color: #ffffff;
