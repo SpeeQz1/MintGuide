@@ -40,8 +40,8 @@ $wgResourceBasePath = $wgScriptPath;
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [
-	'1x' => "$wgResourceBasePath/resources/assets/Linux_Mint_logo_without_wordmark_optimized.svg",
-	'icon' => "$wgResourceBasePath/resources/assets/Linux_Mint_logo_without_wordmark_optimized.svg",
+	'1x' => "$wgResourceBasePath/resources/assets/MintGuide Logo.svg",
+	'icon' => "$wgResourceBasePath/resources/assets/MintGuide Logo.svg",
 ];
 
 ## UPO means: this is also a user preference option

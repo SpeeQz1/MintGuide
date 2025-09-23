@@ -32,10 +32,11 @@ html.skin-theme-clientpref-os {
   /* Interactive elements with secondary color */
   --background-color-interactive-subtle--hover: #4a8a55;
   --background-color-interactive-subtle--active: #35704a;
+}
 
-  .citizen-menu__card {
-    background: rgb(from #242d23 r g b / 0.5);
-  }
+html.skin-theme-clientpref-night .citizen-menu__card,
+html.skin-theme-clientpref-os .citizen-menu__card {
+  background: rgb(from #242d23 r g b / 0.5);
 }
 
 html.skin-theme-clientpref-day {
@@ -69,28 +70,26 @@ html.skin-theme-clientpref-day {
   /* Interactive elements with secondary color */
   --background-color-interactive-subtle--hover: #4a8a55;
   --background-color-interactive-subtle--active: #35704a;
+}
 
-  .citizen-menu__card {
-    background: rgb(from #f9fff5 r g b / 0.5);
-  }
+html.skin-theme-clientpref-day .citizen-menu__card {
+  background: rgb(from #f9fff5 r g b / 0.5);
+}
 
-  .citizen-dropdown-details::before {
-    opacity: 0;
-  }
+html.skin-theme-clientpref-day .citizen-dropdown-details::before {
+  opacity: 0;
+}
 
-  .citizen-menu__card-backdrop::before {
-    background: none;
-  }
+html.skin-theme-clientpref-day .citizen-menu__card-backdrop::before {
+  background: none;
+}
 
-  .citizen-menu__card-content {
-    .citizen-ui-icon {
-      color: #000000;
-    }
-  }
+html.skin-theme-clientpref-day .citizen-menu__card-content .citizen-ui-icon {
+  color: #000000;
+}
 
-  .page-actions {
-    background: #ffffff;
-  }
+html.skin-theme-clientpref-day .page-actions {
+  background: #ffffff;
 }
 
 /* Sidemenu gradient and icons */
@@ -100,18 +99,20 @@ html.skin-theme-clientpref-day {
     rgba(2, 129, 104, 1) 0%,
     rgba(63, 127, 74, 1) 100%
   );
+}
 
-  @media screen and (max-width: calc(1119px)) {
+@media screen and (max-width: 1119px) {
+  .mw-header.citizen-header {
     background: linear-gradient(
       45deg,
       rgba(2, 129, 104, 1) 0%,
       rgba(63, 127, 74, 1) 100%
     );
   }
+}
 
-  .citizen-ui-icon {
-    color: #ffffff;
-  }
+.mw-header.citizen-header .citizen-ui-icon {
+  color: #ffffff;
 }
 
 /* Home Icon */
@@ -121,4 +122,10 @@ html.skin-theme-clientpref-day {
 
 .mw-logo.citizen-header__button:hover .citizen-ui-icon.mw-ui-icon-home {
   opacity: 1;
+}
+
+/* Increasing Home Icon */
+.citizen-header__button .mw-logo-icon {
+  width: 100%;
+  height: 100%;
 }
