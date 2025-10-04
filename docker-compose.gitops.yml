@@ -1,7 +1,7 @@
 name: mediawiki-gitops
 
 services:
-  # Env injector to safely copy .env file
+  # Env injector to safely copy local .env file
   env-injector:
     container_name: env-injector
     image: alpine:latest

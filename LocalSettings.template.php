@@ -172,14 +172,14 @@ $wgShowSQLErrors = true;
 # You might want to set this to false in production
 $wgDebugLogFile = "/var/log/mediawiki/debug-{$wgDBname}.log";
 
-# Custom CSS loading - behaves like MediaWiki:Common.css
+# Custom CSS loading - behaves like MediaWiki:Citizen.css
 $wgResourceModules['site.common'] = [
     'styles' => [
-        'Common.css'
+        'Citizen.css'
     ],
     'localBasePath' => "$IP/css/",
     'remoteBasePath' => "$wgScriptPath/css/",
-    'group' => 'site'  # Same group as MediaWiki:Common.css
+    'group' => 'site'
 ];
 
 # Load custom CSS on all pages for all users (same as MediaWiki:Common.css)

@@ -14,6 +14,10 @@ services:
       - .env
     volumes:
       - images:/var/www/html/images
+
+      # CUSTOM VOLUMES
+      # ==============
+
       # Important to note is that only the assets folder has been modified and not resources.
       # Otherwise it will mimic what is on the host including missing files.
       # Import wikitexts and images

@@ -60,9 +60,9 @@ html.skin-theme-clientpref-day {
   /* Background colors */
   --color-surface-0: #eff2f0;
   --color-surface-1: #e3ecdf;
-  --color-surface-2: #0d120f;
+  --color-surface-2: #ffffff;
   --background-color-interactive-subtle: #3f7f4a;
-  --background-color-progressive-subtle: #0d120f;
+  --background-color-progressive-subtle: #ffffff;
 
   --background-color-base: #eaeceb;
   --background-color-base-fixed: #82bd59;
@@ -70,6 +70,10 @@ html.skin-theme-clientpref-day {
   /* Interactive elements with secondary color */
   --background-color-interactive-subtle--hover: #4a8a55;
   --background-color-interactive-subtle--active: #35704a;
+}
+
+html.skin-theme-clientpref-day code {
+  border-color: #37692d;
 }
 
 html.skin-theme-clientpref-day .citizen-menu__card {
