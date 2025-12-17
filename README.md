@@ -2,7 +2,7 @@
 
 ## Introduction
 
-### The original repository can be found on Codeberg: https://codeberg.org/SpeeQz1/MintGuide
+### ❗️ The original repository can be found on Codeberg: https://codeberg.org/SpeeQz1/MintGuide ❗️
 
 <hr/>
 
