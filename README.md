@@ -10,7 +10,7 @@ Welcome to The Linux Mint Community Wiki repository. Here you can find the infra
 
 Instructions on how to set it up are included bellow and further documentation on how the whole infrastructure setup can be found in [docs currently are not implemented]().
 
-> NOTE: ⚠️ Warning this repo is still work in progress and subject to be heavily modified for now.
+> NOTE: ⚠️ Warning this repo is still work in progress and subject to be heavily modified for now. ⚠️
 
 ## Instructions
 
